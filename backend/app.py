@@ -55,7 +55,7 @@ def classify():
 
 @app.route('/')
 def home():
-    return "Sentiment Analysis API is running."
+    return "Hello, Render!"
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')  # Make the app accessible on the local network
