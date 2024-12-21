@@ -6,6 +6,14 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.decomposition import PCA
 from sklearn.svm import SVC
 from sklearn.model_selection import train_test_split
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from the .env file
+load_dotenv()
+
+# Get the IMDB file path from the environment variable
+file_path = os.getenv('IMDB_FILE_PATH')
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
@@ -25,7 +33,6 @@ def preprocess_and_train(file_path):
     return tfidf, pca, svm
 
 # Load the model components
-file_path = "data/IMDB Dataset.csv"
 tfidf, pca, svm = preprocess_and_train(file_path)
 
 
@@ -59,4 +66,3 @@ def home():
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')  # Make the app accessible on the local network
-
