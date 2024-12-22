@@ -8,5 +8,5 @@ services:
       apt-get install -y build-essential python3-dev libatlas-base-dev gfortran
       pip install gunicorn
       pip install -r requirements.txt
-    startCommand: gunicorn app:app
+    startCommand: gunicorn backend.app:app
 
