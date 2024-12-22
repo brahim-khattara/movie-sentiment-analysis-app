@@ -21,8 +21,8 @@ CORS(app)  # Enable CORS for all routes
 
 # Preprocess and train the model
 def preprocess_and_train(file_path):
-    df = pd.read_csv(file_path).head(10000)
-    tfidf = TfidfVectorizer(max_features=5000, stop_words='english', ngram_range=(1, 2))
+    df = pd.read_csv(file_path).head(50)
+    tfidf = TfidfVectorizer(max_features=10000, stop_words='english', ngram_range=(1, 2))
     X = tfidf.fit_transform(df["review"]).toarray()
     y = df["sentiment"].map({"positive": 1, "negative": 0})
     pca = PCA(n_components=50)

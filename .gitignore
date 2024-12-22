@@ -42,4 +42,7 @@ instance/
 .DS_Store
 Thumbs.db
 
+myvenv/
 .env
+*.pyc
+__pycache__/
